@@ -58,7 +58,7 @@ public class ClientesController {
                 .orElse(ResponseEntity.notFound().build());
     }
 
-    @DeleteMapping(path = {"/{id"})
+    @DeleteMapping(path = {"/{id}"})
     public ResponseEntity delete(@PathVariable Integer id){
         return clienteRepository.findById(Long.valueOf(id))
                 .map(record -> {
