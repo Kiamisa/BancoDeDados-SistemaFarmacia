@@ -33,7 +33,41 @@ public class Fornecimento {
     @JoinColumn(name = "fornecedores_id", nullable = false)
     private Fornecedor fornecedor;
 
+    //possivel alteração
     @ManyToOne
     @JoinColumn(name = "medicamentos_id", nullable = false)
     private Medicamentos medicamento;
+
+    //Get e Set
+    public Long getId() { return id; }
+
+    public void setId(Long id) { this.id = id; }
+
+    public LocalDate getDataFornecimento() { return dataFornecimento; }
+
+    public void setDataFornecimento(LocalDate dataFornecimento) { this.dataFornecimento = dataFornecimento; }
+
+    public Integer getQuantidade() { return quantidade; }
+
+    public void setQuantidade(Integer quantidade) { this.quantidade = quantidade; }
+
+    public BigDecimal getValorTotal() { return valorTotal; }
+
+    public void setValorTotal(BigDecimal valorTotal) { this.valorTotal = valorTotal; }
+
+    public LocalDate getFabricacao() { return fabricacao; }
+
+    public void setFabricacao(LocalDate fabricacao) { this.fabricacao = fabricacao; }
+
+    public LocalDate getVencimento() { return vencimento; }
+
+    public void setVencimento(LocalDate vencimento) { this.vencimento = vencimento; }
+
+    public Fornecedor getFornecedor() { return fornecedor; }
+
+    public void setFornecedor(Fornecedor fornecedor) { this.fornecedor = fornecedor; }
+
+    public Medicamentos getMedicamento() { return medicamento; }
+
+    public void setMedicamento(Medicamentos medicamento) { this.medicamento = medicamento; }
 }
