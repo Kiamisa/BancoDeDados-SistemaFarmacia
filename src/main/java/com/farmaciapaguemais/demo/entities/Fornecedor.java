@@ -4,6 +4,9 @@ import jakarta.persistence.*;
 
 import lombok.Data;
 
+import java.util.ArrayList;
+import java.util.List;
+
 @Data
 @Entity
 @Table(name = "fornecedores")
@@ -37,6 +40,10 @@ public class Fornecedor {
     @Column(nullable = false, length = 14)
     private Long cnpj;
 
+    @OneToMany(mappedBy = "fornecedor", cascade = CascadeType.ALL, orphanRemoval = true)
+    private List<Fornecimento> fornecimentos = new ArrayList<>();
+
+    //get e set
     public Long getId() {
         return id;
     }
@@ -76,5 +83,13 @@ public class Fornecedor {
     public Long getCnpj() { return cnpj; }
 
     public void setCnpj(Long cnpj) { this.cnpj = cnpj; }
+
+    public List<Fornecimento> getFornecimentos() {
+        return fornecimentos;
+    }
+
+    public void setFornecimentos(List<Fornecimento> fornecimentos) {
+        this.fornecimentos = fornecimentos;
+    }
 }
 

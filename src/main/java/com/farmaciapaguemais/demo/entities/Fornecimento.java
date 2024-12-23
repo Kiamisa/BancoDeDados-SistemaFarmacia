@@ -38,6 +38,8 @@ public class Fornecimento {
     @JoinColumn(name = "medicamentos_id", nullable = false)
     private Medicamentos medicamento;
 
+
+
     //Get e Set
     public Long getId() { return id; }
 
