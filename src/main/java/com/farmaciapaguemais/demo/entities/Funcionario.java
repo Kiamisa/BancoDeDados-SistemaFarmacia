@@ -28,4 +28,6 @@ public class Funcionario {
 
     @Column(name = "qtd_vendas", nullable = false)
     private Long quantidadeVendas;
+
+
 }
