@@ -7,8 +7,6 @@ import java.util.List;
 
 public interface FornecimentoRepository extends JpaRepository<Fornecimento, Long> {
     List<Fornecimento> findByFornecedorId(Long fornecedorId);
-    boolean existsByFornecedorId(Integer fornecedorId);
-    List<Fornecimento> findByMedicamentoId(Long medicamentoId);
-
-    Integer Id(Long id);
+    boolean existsByFornecedorId(Long fornecedorId);
 }
+

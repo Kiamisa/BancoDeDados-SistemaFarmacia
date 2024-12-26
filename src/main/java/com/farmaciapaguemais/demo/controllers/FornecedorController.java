@@ -15,41 +15,40 @@ import java.util.List;
 public class FornecedorController {
 
     private final FornecimentoRepository fornecimentoRepository;
-    private FornecedorRepository fornecedorRepository;
+    private final FornecedorRepository fornecedorRepository;
 
-    FornecedorController(FornecedorRepository fornecedorRepository, FornecimentoRepository fornecimentoRepository){
+    FornecedorController(FornecedorRepository fornecedorRepository, FornecimentoRepository fornecimentoRepository) {
         this.fornecedorRepository = fornecedorRepository;
         this.fornecimentoRepository = fornecimentoRepository;
     }
 
     @GetMapping
-    public List<Fornecedor> findAll(){
+    public List<Fornecedor> findAll() {
         return fornecedorRepository.findAll();
     }
 
     @GetMapping(path = {"/{id}"})
-    public ResponseEntity findById(@PathVariable Long id){
-        return fornecedorRepository.findById(Long.valueOf(id))
-                .map(record->
+    public ResponseEntity findById(@PathVariable Long id) {
+        return fornecedorRepository.findById(id)
+                .map(record ->
                         ResponseEntity.ok().body(record))
                 .orElse(ResponseEntity.notFound().build());
     }
 
-    //Obter o fornecimento de um fornecedor
     @GetMapping("/{id}/fornecimentos")
-    public List<Fornecimento> getFornecimentosByFornecedor(@PathVariable Integer id){
-        return fornecedorRepository.findByFornecedorId(id);
+    public List<Fornecimento> getFornecimentosByFornecedor(@PathVariable Long id) {
+        return fornecimentoRepository.findByFornecedorId(id);
     }
 
     @PostMapping
-    public Fornecedor create(@RequestBody Fornecedor fornecedor){
+    public Fornecedor create(@RequestBody Fornecedor fornecedor) {
         return fornecedorRepository.save(fornecedor);
     }
 
     @PutMapping(path = "/{id}")
-    public ResponseEntity update(@PathVariable Long id, @RequestBody Fornecedor fornecedor){
-        return fornecedorRepository.findById(Long.valueOf(id))
-                .map(record ->{
+    public ResponseEntity update(@PathVariable Long id, @RequestBody Fornecedor fornecedor) {
+        return fornecedorRepository.findById(id)
+                .map(record -> {
                     record.setNome(fornecedor.getNome());
                     record.setTelefone(fornecedor.getTelefone());
                     record.setEmail(fornecedor.getEmail());
@@ -65,24 +64,18 @@ public class FornecedorController {
                 .orElse(ResponseEntity.notFound().build());
     }
 
-    @DeleteMapping(path = {"/{id}"})
-    public ResponseEntity delete(@PathVariable Long id){
-        return fornecedorRepository.findById(Long.valueOf(id))
-                .map(record->{
-                    fornecedorRepository.deleteById(Long.valueOf(id));
+    @DeleteMapping("/{id}")
+    public ResponseEntity deleteFornecedor(@PathVariable Long id) {
+        if (fornecimentoRepository.existsByFornecedorId(id)) {
+            return ResponseEntity.status(HttpStatus.CONFLICT)
+                    .body("Fornecedor Possui Fornecimentos Associados e Não Pode Ser Excluído.");
+        }
+
+        return fornecedorRepository.findById(id)
+                .map(record -> {
+                    fornecedorRepository.deleteById(id);
                     return ResponseEntity.ok().build();
                 })
                 .orElse(ResponseEntity.notFound().build());
-    }
-
-    //Verificar Se o Fornecedor Possui Fornecimentos Associados
-    @DeleteMapping("/{id}")
-    public ResponseEntity deleteFornecedor(@PathVariable Integer id){
-        if (fornecimentoRepository.existsByFornecedorId(id)) {
-            return ResponseEntity.status(HttpStatus.CONFLICT).body("Fornecedor Possui Fornecimentos Associados e " +
-                    "Não Pode Ser Excluído.");
-        }
-        fornecedorRepository.deleteById(Long.valueOf(id));
-        return ResponseEntity.ok().build();
     }
 }
