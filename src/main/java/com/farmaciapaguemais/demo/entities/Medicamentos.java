@@ -34,5 +34,69 @@ public class Medicamentos {
 
     @Column(nullable = false, precision = 10, scale = 2)
     private BigDecimal preco;
+
+    public Long getId() {
+        return id;
+    }
+
+    public void setId(Long id) {
+        this.id = id;
+    }
+
+    public String getNome() {
+        return nome;
+    }
+
+    public void setNome(String nome) {
+        this.nome = nome;
+    }
+
+    public String getUsoIndicado() {
+        return usoIndicado;
+    }
+
+    public void setUsoIndicado(String usoIndicado) {
+        this.usoIndicado = usoIndicado;
+    }
+
+    public LocalDate getFabricacao() {
+        return fabricacao;
+    }
+
+    public void setFabricacao(LocalDate fabricacao) {
+        this.fabricacao = fabricacao;
+    }
+
+    public LocalDate getValidade() {
+        return validade;
+    }
+
+    public void setValidade(LocalDate validade) {
+        this.validade = validade;
+    }
+
+    public String getFabricante() {
+        return fabricante;
+    }
+
+    public void setFabricante(String fabricante) {
+        this.fabricante = fabricante;
+    }
+
+    public Integer getEstoque() {
+        return estoque;
+    }
+
+    public void setEstoque(Integer estoque) {
+        this.estoque = estoque;
+    }
+
+    public BigDecimal getPreco() {
+        return preco;
+    }
+
+    public void setPreco(BigDecimal preco) {
+        this.preco = preco;
+    }
 }
 

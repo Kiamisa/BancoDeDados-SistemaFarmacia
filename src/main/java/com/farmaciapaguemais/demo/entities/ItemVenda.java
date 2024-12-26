@@ -26,4 +26,44 @@ public class ItemVenda {
     @ManyToOne
     @JoinColumn(name = "medicamentos_id", nullable = false)
     private Medicamentos medicamento;
+
+    public Long getId() {
+        return id;
+    }
+
+    public void setId(Long id) {
+        this.id = id;
+    }
+
+    public Integer getQuantidade() {
+        return quantidade;
+    }
+
+    public void setQuantidade(Integer quantidade) {
+        this.quantidade = quantidade;
+    }
+
+    public BigDecimal getPrecoUnitario() {
+        return precoUnitario;
+    }
+
+    public void setPrecoUnitario(BigDecimal precoUnitario) {
+        this.precoUnitario = precoUnitario;
+    }
+
+    public Vendas getVenda() {
+        return venda;
+    }
+
+    public void setVenda(Vendas venda) {
+        this.venda = venda;
+    }
+
+    public Medicamentos getMedicamento() {
+        return medicamento;
+    }
+
+    public void setMedicamento(Medicamentos medicamento) {
+        this.medicamento = medicamento;
+    }
 }

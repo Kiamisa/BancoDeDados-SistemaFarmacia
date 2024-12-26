@@ -26,4 +26,44 @@ public class Prescricoes {
     @ManyToOne
     @JoinColumn(name = "medicamentos_id", nullable = false)
     private Medicamentos medicamento;
+
+    public Long getId() {
+        return id;
+    }
+
+    public void setId(Long id) {
+        this.id = id;
+    }
+
+    public Clientes getCliente() {
+        return cliente;
+    }
+
+    public void setCliente(Clientes cliente) {
+        this.cliente = cliente;
+    }
+
+    public LocalDate getDataPrescricao() {
+        return dataPrescricao;
+    }
+
+    public void setDataPrescricao(LocalDate dataPrescricao) {
+        this.dataPrescricao = dataPrescricao;
+    }
+
+    public String getDescricao() {
+        return descricao;
+    }
+
+    public void setDescricao(String descricao) {
+        this.descricao = descricao;
+    }
+
+    public Medicamentos getMedicamento() {
+        return medicamento;
+    }
+
+    public void setMedicamento(Medicamentos medicamento) {
+        this.medicamento = medicamento;
+    }
 }
