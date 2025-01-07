@@ -40,7 +40,7 @@ public class MedicamentosController {
         return medicamentoRepository.findById(id)
                 .map(record ->{
                     record.setNome(medicamento.getNome());
-                    record.setUsoIndicado(medicamento.getUsoIndicado());
+                    record.setNome(medicamento.getDescricao());
                     record.setFabricacao(medicamento.getFabricacao());
                     record.setFabricante(medicamento.getFabricante());
                     record.setFabricante(medicamento.getFabricante());
