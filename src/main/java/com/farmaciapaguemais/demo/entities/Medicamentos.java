@@ -1,5 +1,6 @@
 package com.farmaciapaguemais.demo.entities;
 
+import jakarta.validation.constraints.NotNull;
 import lombok.Data;
 import jakarta.persistence.*;
 import java.math.BigDecimal;
@@ -17,8 +18,8 @@ public class Medicamentos {
     @Column(nullable = false, length = 100)
     private String nome;
 
-    @Column(name = "uso_indicado", nullable = false, length = 255)
-    private String usoIndicado;
+    @Column(nullable = false, length = 300)
+    private String descricao;
 
     @Column(nullable = false)
     private LocalDate fabricacao;
@@ -34,6 +35,11 @@ public class Medicamentos {
 
     @Column(nullable = false, precision = 10, scale = 2)
     private BigDecimal preco;
+
+    @ManyToOne
+    @JoinColumn(name = "tipo_medicamento_id", nullable = false)
+    private TipoMedicamento tipoMedicamento;
+
 
     public Long getId() {
         return id;
@@ -51,12 +57,12 @@ public class Medicamentos {
         this.nome = nome;
     }
 
-    public String getUsoIndicado() {
-        return usoIndicado;
+    public String getDescricao() {
+        return descricao;
     }
 
-    public void setUsoIndicado(String usoIndicado) {
-        this.usoIndicado = usoIndicado;
+    public void setDescricao(String descricao) {
+        this.descricao = descricao;
     }
 
     public LocalDate getFabricacao() {

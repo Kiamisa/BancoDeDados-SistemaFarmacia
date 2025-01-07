@@ -1,5 +1,6 @@
 package com.farmaciapaguemais.demo.entities;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
 
 import lombok.Data;
@@ -41,6 +42,7 @@ public class Fornecedor {
     private Long cnpj;
 
     @OneToMany(mappedBy = "fornecedor", cascade = CascadeType.ALL, orphanRemoval = true)
+    @JsonIgnore
     private List<Fornecimento> fornecimentos = new ArrayList<>();
 
     //get e set
