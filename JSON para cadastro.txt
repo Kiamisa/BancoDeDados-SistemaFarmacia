@@ -1,0 +1,124 @@
+JSON para cadastro de Clientes:
+
+{
+  "nome": "João Silva",
+  "endereco": "Rua das Flores",
+  "complemento": "Apt 101",
+  "bairro": "Centro",
+  "numero": 123,
+  "cidadesId": 1,
+  "telefone1": "11987654321",
+  "email": "joao.silva@example.com",
+  "telefone2": "11912345678",
+  "cpf": "12345678901",
+  "dataNascimento": "1985-07-15",
+  "nomePai": "José Silva",
+  "nomeMae": "Maria Silva"
+}
+
+
+JSON para cadastro de Fornecedores:
+
+{
+  "nome": "Farmácia Central Ltda",
+  "telefone": "(11) 98765-4321",
+  "email": "contato@farmaciacentral.com",
+  "endereco": "Rua das Flores",
+  "complemento": "Loja 2",
+  "bairro": "Centro",
+  "numero": 123,
+  "cnpj": "12345678901234"
+}
+
+JSON para cadastro de Tipo de Medicamento:
+
+{
+  "descricao": "Alergia"
+}
+
+JSON para cadastro de Medicamentos:
+
+{
+    "nome": "Amoxicilina",
+    "descricao": "Antibiótico para infecções",
+    "fabricacao": "2023-01-01",
+    "validade": "2025-01-01",
+    "fabricante": "Farmacêutica XYZ",
+    "estoque": 50,
+    "preco": 20.50,
+    "tipoMedicamento": {
+        "id": 1
+    }
+}
+
+JSON para cadastro de Fornecimento:
+
+{
+  "dataFornecimento": "2024-12-28",
+  "quantidade": 100,
+  "valorTotal": 1500.00,
+  "fabricacao": "2024-10-01",
+  "vencimento": "2025-10-01",
+  "fornecedor": {
+    "id": 1
+  },
+  "medicamento": {
+    "id": 1
+  }
+}
+
+JSON para cadastro de Funcionário:
+
+{
+  "nome": "Carlos Souza",
+  "cargo": "Vendedor",
+  "salario": 2500.50,
+  "dataAdmissao": "2022-01-15",
+  "quantidadeVendas": 150
+}
+
+
+JSON para cadastro de Prescrições:
+
+{
+  "cliente": {
+    "id": 1
+  },
+  "dataPrescricao": "2024-12-28",
+  "descricao": "Uso contínuo para controle da hipertensão.",
+  "medicamento": {
+    "id": 1
+  }
+}
+
+JSON para cadastro de Vendas:
+
+{
+  "dataVenda": "2024-12-28",
+  "valorTotal": 150.75,
+  "cliente": {
+    "id": 1
+  },
+  "funcionario": {
+    "id": 1
+  }
+}
+
+JSON para cadastro de ItemVenda:
+
+{
+  "quantidade": 2,
+  "precoUnitario": 15.75,
+  "venda": {
+     "id": 1
+  },
+    "cliente": {
+      "id": 1
+    },
+    "funcionario": {
+      "id": 1
+    },
+  "medicamento": {
+    "id": 1
+  }
+}
