@@ -104,5 +104,14 @@ public class Medicamentos {
     public void setPreco(BigDecimal preco) {
         this.preco = preco;
     }
+
+    public TipoMedicamento getTipoMedicamento() {
+        return tipoMedicamento;
+    }
+
+    public void setTipoMedicamento(TipoMedicamento tipoMedicamento) {
+        this.tipoMedicamento = tipoMedicamento;
+    }
+
 }
 
